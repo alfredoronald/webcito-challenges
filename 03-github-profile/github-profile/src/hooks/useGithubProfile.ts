@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Repository } from "@/interfaces/gitHubRepo";
-import { GitHubUser } from "@/interfaces/gitHubUser";
-import { getUsers } from "@/services/github";
-import { getGitRepos } from "@/services/gitRepos";
+import { useEffect, useState } from 'react';
+import { Repository } from '@/interfaces/gitHubRepo';
+import { GitHubUser } from '@/interfaces/gitHubUser';
+import { getUser } from '@/services/github';
+import { getGitRepos } from '@/services/gitRepos';
 
 export function useGithubProfile(username: string) {
   const [user, setUser] = useState<GitHubUser | null>(null);
@@ -12,12 +12,13 @@ export function useGithubProfile(username: string) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await getUsers(username);
+        const userData = await getUser(username);
         const reposData = await getGitRepos(username);
+
         setUser(userData);
         setRepos(reposData);
       } catch {
-        setError("Error fetching data");
+        setError('Error fetching data');
       }
     };
 

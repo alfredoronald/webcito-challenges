@@ -1,17 +1,23 @@
 'use client';
 import { useGithubProfile } from '@/hooks/useGithubProfile';
 import { textFont } from '@/config/fonts';
-import { ArticleRepositories } from './articleRepositories';
+import RepoItem from './itemRepository';
 import { ProfileAside } from './profileAside';
+import { useState } from 'react';
 
 interface Props {
   username: string;
 }
 export default function UseCard({ username }: Props) {
   const { user, repos, error } = useGithubProfile(username);
+  const [search, setSearch] = useState('');
 
   if (error) return <p className="text-red-500">{error}</p>;
   if (!user) return <p>Cargando...</p>;
+
+  const filteredRepos = repos.filter((repo) =>
+    repo.name.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <div
@@ -30,12 +36,14 @@ export default function UseCard({ username }: Props) {
             className="flex-1 border-2 rounded-lg border-[var(--color-font)] px-4 py-1"
             type="text"
             placeholder="Find a repository"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
 
           <div className="flex items-center gap-2">
             <form className="flex-1" action="#">
               <select
-                className="bg-[var(--color-button)] rounded-lg border-none px-2 py-2"
+                className="bg-[var(--color-button)]  rounded-lg border-none px-2 py-2"
                 name="lenguajes"
                 id="lang"
               >
@@ -50,7 +58,7 @@ export default function UseCard({ username }: Props) {
 
             <form className="flex-1" action="#">
               <select
-                className="bg-[var(--color-button)] rounded-lg border-none px-2 py-2"
+                className="bg-[var(--color-button)] rounded-lg border-none pl-2 py-2 pr-8"
                 name="lenguajes"
                 id="lang"
               >
@@ -79,15 +87,11 @@ export default function UseCard({ username }: Props) {
           </div>
         </nav>
 
-        {repos.length > 0 && (
+        {filteredRepos.length > 0 && (
           <ul>
-            {repos.map((repo) => (
+            {filteredRepos.map((repo) => (
               <li key={repo.id}>
-                <ArticleRepositories
-                  username={repo.name}
-                  descripcion={repo.description}
-                  framework={repo.language}
-                />
+                <RepoItem username={username} repo={repo} />
               </li>
             ))}
           </ul>

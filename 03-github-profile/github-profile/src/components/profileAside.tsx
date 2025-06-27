@@ -1,5 +1,5 @@
-import Image from "next/image";
-import {GitHubUser} from "@/interfaces/gitHubUser";
+import Image from 'next/image';
+import { GitHubUser } from '@/interfaces/gitHubUser';
 interface ProfileAsideProps {
   user: GitHubUser;
 }
@@ -37,23 +37,48 @@ export function ProfileAside({ user }: ProfileAsideProps) {
       <article>
         <ol className="flex flex-col mt-2 gap-y-2 text-[var(--color-font)]">
           <li className="flex text-center gap-2">
-            <Image src="/icons/users.svg" alt="GitHub Logo" width={24} height={24} />
+            <Image
+              src="/icons/users.svg"
+              alt="GitHub Logo"
+              width={24}
+              height={24}
+            />
             {user.followers} Followers • {user.following} Following
           </li>
           <li className="flex text-center gap-2">
-            <Image src="/icons/star.svg" alt="GitHub Logo" width={24} height={24} />
+            <Image
+              src="/icons/star.svg"
+              alt="GitHub Logo"
+              width={24}
+              height={24}
+            />
             0
           </li>
           <li className="flex text-center gap-2">
-            <Image src="/icons/location.svg" alt="GitHub Logo" width={24} height={24} />
+            <Image
+              src="/icons/location.svg"
+              alt="GitHub Logo"
+              width={24}
+              height={24}
+            />
             {user.location}
           </li>
           <li className="flex text-center gap-2">
-            <Image src="/icons/link.svg" alt="GitHub Logo" width={24} height={24} />
+            <Image
+              src="/icons/link.svg"
+              alt="GitHub Logo"
+              width={24}
+              height={24}
+            />
             {user.blog || user.html_url}
           </li>
           <li className="flex text-center gap-2">
-            <Image src="/icons/twiter.svg" alt="GitHub Logo" width={24} height={24} />
+            <Image
+              src="/icons/twiter.svg"
+              alt="GitHub Logo"
+              width={24}
+              height={24}
+            />
             {user.twitter_username}
           </li>
         </ol>

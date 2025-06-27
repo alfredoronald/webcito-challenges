@@ -3,5 +3,6 @@ export interface Repository {
   name: string;
   description: string;
   language: string;
+  visibility: string;
   // otros campos si los necesitas
 }

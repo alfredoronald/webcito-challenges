@@ -4,12 +4,16 @@ interface ArticleRepositoriesProps {
   username: string;
   descripcion?: string;
   framework?: string;
+  language?: string[];
+  visibility?: string;
 }
 
 export function ArticleRepositories({
   username,
   descripcion,
   framework,
+  language,
+  visibility,
 }: Readonly<ArticleRepositoriesProps>) {
   return (
     <div className="grid mb-6 w-full p-3 sm:p-4 border rounded-xl shadow-sm bg-[var(--color-bg-card)]">
@@ -17,7 +21,7 @@ export function ArticleRepositories({
         <h2 className="text-[var(--color-title-card)] font-bold text-lg">
           {username}
           <span className="ml-2 text-amber-50 text-xs font-medium border-1 py-1 px-2 rounded-2xl">
-            Public
+            {visibility}
           </span>
         </h2>
         <button className="flex items-center gap-2 bg-[var(--color-button)] text-white px-3 py-1.5 rounded-md hover:opacity-90 transition">
@@ -38,9 +42,25 @@ export function ArticleRepositories({
         </p>
       )}
 
-      {framework && (
-        <span className="text-xs text-gray-400 ml-1.5">{framework}</span>
-      )}
+      <div>
+        {language.length > 0 ? (
+          <ul className="flex flex-wrap gap-2 mt-2  text-xs">
+            {language.map((lang, idx) => (
+              <li
+                className="text-[var(--color-title-card)] rounded-2xl bg-[#15223A] py-1 px-1.5 "
+                key={idx}
+              >
+                {lang}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <span>No languages found</span>
+        )}
+        {framework && (
+          <span className="text-xs text-gray-400 ">{framework}</span>
+        )}
+      </div>
     </div>
   );
 }
