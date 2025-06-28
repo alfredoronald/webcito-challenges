@@ -42,25 +42,25 @@ export function ArticleRepositories({
         </p>
       )}
 
-      <div>
-        {language.length > 0 ? (
-          <ul className="flex flex-wrap gap-2 mt-2  text-xs">
-            {language.map((lang, idx) => (
-              <li
-                className="text-[var(--color-title-card)] rounded-2xl bg-[#15223A] py-1 px-1.5 "
-                key={idx}
-              >
-                {lang}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <span>No languages found</span>
-        )}
-        {framework && (
-          <span className="text-xs text-gray-400 ">{framework}</span>
-        )}
-      </div>
+     <div>
+  {language && language.length > 0 ? (
+    <ul className="flex flex-wrap gap-2 mt-2 text-xs">
+      {language.map((lang, idx) => (
+        <li
+          className="text-[var(--color-title-card)] rounded-2xl bg-[#15223A] py-1 px-1.5"
+          key={idx}
+        >
+          {lang}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <span>No languages found</span>
+  )}
+  {framework && (
+    <span className="text-xs text-gray-400 ">{framework}</span>
+  )}
+</div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-export default {
+
+const config = {
   darkMode: 'class', // importante
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}', // ajusta según tu estructura
@@ -8,3 +9,6 @@ export default {
   },
   plugins: [],
 };
+
+export default config;
+    

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getLanguages } from '@/services/getLanguages';
-import { RepoLanguages } from '@/interfaces/repoLanguages';
+
 function useRepoLanguages(username: string, repoName: string) {
-  const [languages, setLanguages] = useState<RepoLanguages[]>([]);
+  const [languages, setLanguages] = useState<string[]>([]);
 
   useEffect(() => {
     getLanguages(username, repoName)
