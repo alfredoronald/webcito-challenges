@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
 
 :root {
   --background: #0d1117;
@@ -7,17 +8,27 @@
   --button: #22262c;
   --font: #c5ced7;
   --title-card: #57a6ff;
+  --language-card: #15223A;
+}
+
+[data-theme="light"] {
+  --background: #f8fafc;
+  --foreground: #4888e7;
+  --language: #e0e7ef;
+  --button: #040404;
+  --font: #22262c;
+  --title-card: #2563eb;
+  --language-card: #15223A;  
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-button: var(--button);
-  --color-font: var(--font);
+  --color-font: var(--font);  
   --color-title-card: var(--title-card);
   --color-language: var(--language);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-language-card: var(--language-card);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -17,17 +17,17 @@ export function ProfileAside({ user }: ProfileAsideProps) {
       <h2 className="text-xl font-semibold mt-2">{user.login}</h2>
       <span className="text-[var(--color-font)] mt-2">{user.name}</span>
       <div className="flex flex-row gap-2 my-4">
-        <button className="border-solid border-1 rounded-lg bg-[var(--color-button)] cursor-pointer">
+        <button className="border-solid border-1 rounded-lg bg-[var(--color-button)] light:bg-[#2563eb] cursor-pointer">
           <p className="flex px-10 py-1">Follow</p>
         </button>
-        <button className="border-solid border-1 bg-[var(--color-button)] rounded-lg cursor-pointer">
+        <button className="border-solid border-1 bg-[var(--color-button)] light:bg-[#2563eb] rounded-lg cursor-pointer">
           <p className="flex text-center px-8 py-1 gap-1">
             <Image
               src="/icons/corazon.svg"
               alt="GitHub Logo"
               width={24}
               height={24}
-              className="rounded-full"
+              className="rounded-full "
             />
             Sponsor
           </p>

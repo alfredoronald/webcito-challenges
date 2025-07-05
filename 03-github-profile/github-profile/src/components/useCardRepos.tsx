@@ -11,7 +11,14 @@ interface Props {
 export default function UseCard({ username }: Props) {
   const { user, repos, error } = useGithubProfile(username);
   const [search, setSearch] = useState('');
-
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    if (typeof document !== 'undefined') {
+      document.body.setAttribute('data-theme', newTheme);
+    }
+  };
   if (error) return <p className="text-red-500">{error}</p>;
   if (!user) return <p>Cargando...</p>;
 
@@ -26,11 +33,20 @@ export default function UseCard({ username }: Props) {
       <ProfileAside user={user} />
 
       <main className="grid grid-cols-1 w-full max-w-4xl">
-        <h1
-          className={`${textFont.className} font-semibold text-lg sm:text-xl mb-2`}
-        >
-          Repositorios ({user.public_repos})
-        </h1>
+        <div className="flex items-center justify-between mb-4">
+          <h1
+            className={`${textFont.className} font-semibold text-lg sm:text-xl mb-2`}
+          >
+            Repositorios ({user.public_repos})
+          </h1>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="flex ml-4 px-3 py-1 rounded bg-[var(--color-button)] text-white light:bg-[#2563eb]"
+          >
+            {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+          </button>
+        </div>
         <nav className="flex items-center gap-2 flex-wrap my-4">
           <input
             className="flex-1 border-2 rounded-lg border-[var(--color-font)] px-4 py-1"
@@ -43,7 +59,7 @@ export default function UseCard({ username }: Props) {
           <div className="flex items-center gap-2">
             <form className="flex-1" action="#">
               <select
-                className="bg-[var(--color-button)]  rounded-lg border-none px-2 py-2"
+                className="bg-[var(--color-button)] light:bg-[#2563eb] rounded-lg border-none px-2 py-2"
                 name="lenguajes"
                 id="lang"
               >
@@ -58,7 +74,7 @@ export default function UseCard({ username }: Props) {
 
             <form className="flex-1" action="#">
               <select
-                className="bg-[var(--color-button)] rounded-lg border-none pl-2 py-2 pr-8"
+                className="bg-[var(--color-button)] light:bg-[#2563eb] rounded-lg border-none pl-2 py-2 pr-8"
                 name="lenguajes"
                 id="lang"
               >
@@ -76,7 +92,7 @@ export default function UseCard({ username }: Props) {
 
             <form className="flex-1" action="#">
               <select
-                className="bg-[var(--color-button)] rounded-lg border-none px-2 py-2"
+                className="bg-[var(--color-button)] light:bg-[#2563eb] rounded-lg border-none px-2 py-2"
                 name="lenguajes"
                 id="lang"
               >

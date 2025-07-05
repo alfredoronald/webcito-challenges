@@ -13,3 +13,4 @@ export async function getUser(username: string) {
   }
   return response.json();
 }
+  
