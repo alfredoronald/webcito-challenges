@@ -45,7 +45,10 @@ export default function SearchUser() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className="flex justify-center items-center mt-4">
-            <button type="submit" className="bg-[var(--color-button)] light:bg-[#2563eb] text-white rounded-2xl">
+            <button
+              type="submit"
+              className="bg-[var(--color-button)] light:bg-[#2563eb] text-white rounded-2xl"
+            >
               <a
                 href={`/users/${UserName}`}
                 className="

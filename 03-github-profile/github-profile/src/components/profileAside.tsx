@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { GitHubUser } from '@/interfaces/gitHubUser';
+import LikeButton from './likeButton';
 interface ProfileAsideProps {
   user: GitHubUser;
 }
@@ -20,18 +21,8 @@ export function ProfileAside({ user }: ProfileAsideProps) {
         <button className="border-solid border-1 rounded-lg bg-[var(--color-button)] light:bg-[#2563eb] cursor-pointer">
           <p className="flex px-10 py-1">Follow</p>
         </button>
-        <button className="border-solid border-1 bg-[var(--color-button)] light:bg-[#2563eb] rounded-lg cursor-pointer">
-          <p className="flex text-center px-8 py-1 gap-1">
-            <Image
-              src="/icons/corazon.svg"
-              alt="GitHub Logo"
-              width={24}
-              height={24}
-              className="rounded-full "
-            />
-            Sponsor
-          </p>
-        </button>
+        
+        <LikeButton />
       </div>
       <p className="text-gray-600 ">{user.bio}</p>
       <article>

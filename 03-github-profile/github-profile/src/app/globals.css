@@ -8,24 +8,24 @@
   --button: #22262c;
   --font: #c5ced7;
   --title-card: #57a6ff;
-  --language-card: #15223A;
+  --language-card: #15223a;
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --background: #f8fafc;
   --foreground: #4888e7;
   --language: #e0e7ef;
   --button: #040404;
   --font: #22262c;
   --title-card: #2563eb;
-  --language-card: #15223A;  
+  --language-card: #1f6feb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-button: var(--button);
-  --color-font: var(--font);  
+  --color-font: var(--font);
   --color-title-card: var(--title-card);
   --color-language: var(--language);
   --color-language-card: var(--language-card);
@@ -36,6 +36,20 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+@keyframes float-heart {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.5);
+  }
+}
+
+.animate-float-heart {
+  animation: float-heart 0.5s ease-out forwards;
 }
 
 body {
