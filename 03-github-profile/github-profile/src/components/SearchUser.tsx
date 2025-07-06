@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 export default function SearchUser() {
   const [search, setSearch] = useState('');
-  const [theme, setTheme] = useState<'light|dark'>('dark'); // Default theme
+  const [theme, setTheme] = useState('dark'); // Default theme
   const router = useRouter();
   const UserName = search.toLowerCase();
 
@@ -24,14 +24,15 @@ export default function SearchUser() {
 
   return (
     <div className="justify-center items-center flex flex-col w-full h-screen bg-[var(--color-bg)] ">
-      <button
+      
+      <div className="border-2 px-10 py-10 rounded-2xl light:border-black  ">
+        <button
         type="button"
         onClick={toggleTheme}
-        className="flex ml-4 px-3 py-1 rounded bg-[var(--color-button)] light:bg-[#2563eb] text-white"
+        className="flex ml-32 mt-[-10px ] mb-2 px-3 py-1 rounded bg-[var(--color-button)] light:bg-[#2563eb] text-white"
       >
         {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
       </button>
-      <div className="border-2 px-10 py-10 rounded-2xl light:border-black  ">
         <h1 className="justify-center flex mb-2.5 font-bold text-xl">
           Busca Tu Usuario
         </h1>

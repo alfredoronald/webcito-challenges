@@ -21,8 +21,10 @@ export function ProfileAside({ user }: ProfileAsideProps) {
         <button className="border-solid border-1 rounded-lg bg-[var(--color-button)] light:bg-[#2563eb] cursor-pointer">
           <p className="flex px-10 py-1">Follow</p>
         </button>
-        
-        <LikeButton />
+      
+        <LikeButton>
+          Sponsor
+        </LikeButton>
       </div>
       <p className="text-gray-600 ">{user.bio}</p>
       <article>
