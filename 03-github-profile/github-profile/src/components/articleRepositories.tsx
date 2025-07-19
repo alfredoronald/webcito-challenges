@@ -6,6 +6,7 @@ interface ArticleRepositoriesProps {
   framework?: string;
   language?: string[];
   visibility?: string;
+  url?: string;
 }
 
 export function ArticleRepositories({
@@ -14,12 +15,13 @@ export function ArticleRepositories({
   framework,
   language,
   visibility,
+  url
 }: Readonly<ArticleRepositoriesProps>) {
   return (
     <div className="grid mb-6 w-full p-3 sm:p-4 border rounded-xl shadow-sm bg-[var(--color-bg-card)]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
         <h2 className="text-[var(--color-title-card)] font-bold text-lg">
-          {username}
+          <a href={url}>{username}</a>
           <span className="ml-2 text-amber-50 text-xs font-medium border-1 py-1 px-2 rounded-2xl">
             {visibility}
           </span>

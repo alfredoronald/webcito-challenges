@@ -63,7 +63,7 @@ export function ProfileAside({ user }: ProfileAsideProps) {
               width={24}
               height={24}
             />
-            {user.blog || user.html_url}
+           <a href={user.html_url}>{user.blog || user.html_url}</a> 
           </li>
           <li className="flex text-center gap-2">
             <Image

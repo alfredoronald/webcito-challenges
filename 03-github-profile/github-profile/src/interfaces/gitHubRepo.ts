@@ -4,5 +4,6 @@ export interface Repository {
   description: string;
   language: string;
   visibility: string;
+  url: string;
   // otros campos si los necesitas
 }

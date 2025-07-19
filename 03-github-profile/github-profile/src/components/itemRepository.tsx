@@ -22,6 +22,7 @@ function RepoItem({ username, repo }: RepoItemProps) {
       framework={repo.language}
       language={languages}
       visibility={repo.visibility}
+      url={repo.html_url || "no url provided"}
     />
   );
 }
