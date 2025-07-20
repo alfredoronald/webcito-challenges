@@ -15,7 +15,7 @@ export function ProfileAside({ user }: ProfileAsideProps) {
         height={240}
         className="rounded-full mx-auto"
       />
-      <h2 className="text-xl font-semibold mt-2">{user.login}</h2>
+      <h2 className="text-xl font-semibold mt-2 light:text-[#000000]">{user.login}</h2>
       <span className="text-[var(--color-font)] mt-2">{user.name}</span>
       <div className="flex flex-row gap-2 my-4">
         <button className="border-solid border-1 rounded-lg bg-[var(--color-button)] light:bg-[#2563eb] cursor-pointer">
@@ -28,7 +28,7 @@ export function ProfileAside({ user }: ProfileAsideProps) {
       </div>
       <p className="text-gray-600 ">{user.bio}</p>
       <article>
-        <ol className="flex flex-col mt-2 gap-y-2 text-[var(--color-font)]">
+        <ol className="flex flex-col mt-2 gap-y-2 text-[var(--color-font)] light:text-[#000000] ">
           <li className="flex text-center gap-2">
             <Image
               src="/icons/users.svg"
@@ -72,7 +72,10 @@ export function ProfileAside({ user }: ProfileAsideProps) {
               width={24}
               height={24}
             />
+            <a href={`https://twitter.com/${user.twitter_username}`}>
+              
             {user.twitter_username}
+            </a>
           </li>
         </ol>
       </article>

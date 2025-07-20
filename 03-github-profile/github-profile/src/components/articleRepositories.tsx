@@ -39,7 +39,7 @@ export function ArticleRepositories({
       </div>
 
       {descripcion && (
-        <p className="text-[14px] text-[var(--color-font)] mb-2">
+        <p className="text-[14px] text-[var(--color-font)] light:text-[#000000] mb-2">
           {descripcion}
         </p>
       )}

@@ -35,7 +35,7 @@ export default function UseCard({ username }: Props) {
       <main className="grid grid-cols-1 w-full max-w-4xl">
         <div className="flex items-center justify-between mb-4">
           <h1
-            className={`${textFont.className} font-semibold text-lg sm:text-xl mb-2`}
+            className={`${textFont.className} font-semibold text-lg sm:text-xl mb-2 light:text-[#000000]`}
           >
             Repositorios ({user.public_repos})
           </h1>
