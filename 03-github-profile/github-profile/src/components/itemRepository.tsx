@@ -9,6 +9,7 @@ type RepoItemProps = {
     description: string;
     language: string;
     visibility: string;
+    html_url?: string;
   };
 };
 
